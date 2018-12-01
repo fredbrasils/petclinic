@@ -1,12 +1,21 @@
 package br.com.petclinic.service.map;
 
-import br.com.petclinic.model.Owner;
+import org.springframework.stereotype.Service;
 
-public class OwnerServiceMap extends AbstractMapService<Owner, Long>{
+import br.com.petclinic.model.Owner;
+import br.com.petclinic.service.OwnerService;
+
+@Service
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService{
 
 	@Override
 	public Owner save(Owner entity) {
 		return super.save(entity.getId(), entity);
+	}
+
+	@Override
+	public Owner findByLastName(String lastName) {
+		return null;
 	}
 
 }

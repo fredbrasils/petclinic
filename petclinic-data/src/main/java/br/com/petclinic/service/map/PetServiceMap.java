@@ -1,8 +1,12 @@
 package br.com.petclinic.service.map;
 
-import br.com.petclinic.model.Pet;
+import org.springframework.stereotype.Service;
 
-public class PetServiceMap extends AbstractMapService<Pet, Long>{
+import br.com.petclinic.model.Pet;
+import br.com.petclinic.service.PetService;
+
+@Service
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService{
 
 	@Override
 	public Pet save(Pet entity) {
