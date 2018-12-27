@@ -1,15 +1,30 @@
 package br.com.petclinic.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Owner extends Person {
 
 	private static final long serialVersionUID = 1L;
 
+	@Column
 	private String address;
+	@Column
 	private String city;
+	
+	@Column
 	private String telephone;
-	private Set<Pet> pets;
+	
+	@OneToMany(mappedBy="owner", cascade= CascadeType.ALL)
+	private Set<Pet> pets = new HashSet<>();
 
 	public String getAddress() {
 		return address;
