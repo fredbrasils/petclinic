@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 import br.com.petclinic.model.Owner;
 import br.com.petclinic.repository.OwnerRepository;
 import br.com.petclinic.service.OwnerService;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 @Profile("springdatajpa")
 public class OwnerJPAService implements OwnerService{
@@ -18,6 +20,7 @@ public class OwnerJPAService implements OwnerService{
 	
 	public OwnerJPAService(OwnerRepository ownerRepository) {
 		super();
+		log.debug("Create OwnerJPAService");
 		this.ownerRepository = ownerRepository;
 	}
 
